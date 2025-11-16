@@ -58,7 +58,7 @@ export default function PresentationPage2() {
               <div className="p-8 bg-gradient-to-br from-neutral-800/80 to-neutral-900/80 backdrop-blur-lg rounded-3xl border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/20 hover:border-cyan-500/60 hover:shadow-cyan-500/40 transition-all duration-500">
                 <div className="rounded-2xl overflow-hidden bg-white/5 p-4">
                   <img 
-                    src="/flowchart.png"
+                    src="/FlowChart.png"
                     alt="Research Methodology Flowchart"
                     className="w-full h-auto rounded-xl"
                   />
