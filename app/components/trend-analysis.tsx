@@ -19,15 +19,15 @@ const data = [
 
 export default function TrendAnalysis() {
   return (
-    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-6 hover:border-cyan-500/60 transition-all duration-500 w-full">
-      <div className="space-y-4">
+    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-3 sm:p-4 lg:p-6 hover:border-cyan-500/60 transition-all duration-500 w-full">
+      <div className="space-y-3 sm:space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-cyan-300 mb-2">Road Accidents & Persons Affected with Injuries</h3>
-          <p className="text-sm text-neutral-400">Trend analysis from 2015 to 2025</p>
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-cyan-300 mb-1 sm:mb-2">Road Accidents & Persons Affected with Injuries</h3>
+          <p className="text-xs sm:text-sm text-neutral-400">Trend analysis from 2015 to 2025</p>
         </div>
 
-        <ResponsiveContainer width="100%" height={400}>
-          <LineChart data={data} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
+        <ResponsiveContainer width="100%" height={300} className="sm:!h-[350px] lg:!h-[400px]">
+          <LineChart data={data} margin={{ top: 5, right: 10, left: -20, bottom: 5 }} className="sm:!mr-[30px] sm:!ml-0">
             <CartesianGrid strokeDasharray="3 3" stroke="#404040" />
             <XAxis dataKey="year" stroke="#888" />
             <YAxis stroke="#888" />

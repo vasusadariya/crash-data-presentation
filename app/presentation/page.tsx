@@ -17,63 +17,63 @@ export default function PresentationPage1() {
     <div className="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-white overflow-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-neutral-900/80 backdrop-blur border-b border-cyan-500/20">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
+          <h1 className="text-sm sm:text-lg md:text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             CRASH DATA PRESENTATION
           </h1>
           <Link href="/presentation/page2">
-            <button className="px-6 py-2.5 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 hover:from-cyan-500 hover:to-blue-500 border border-cyan-400/50 hover:border-cyan-300 rounded-lg text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/60 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
-              Next <ArrowRight className="w-4 h-4" />
+            <button className="px-3 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 hover:from-cyan-500 hover:to-blue-500 border border-cyan-400/50 hover:border-cyan-300 rounded-lg text-white text-xs sm:text-base font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/60 transition-all duration-300 transform hover:scale-105 flex items-center gap-1 sm:gap-2">
+              Next <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
             </button>
           </Link>
         </div>
       </nav>
 
       {/* Section 1: Introduction & Problem Context */}
-      <section className="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Background effects */}
-        <div className="absolute top-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1s" }}></div>
+        <div className="absolute top-20 right-5 sm:right-10 w-48 h-48 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 left-5 sm:left-10 w-48 h-48 sm:w-96 sm:h-96 bg-blue-500/10 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1s" }}></div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 relative z-10 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 relative z-10 items-center">
           {/* Left Content */}
-          <div className="space-y-6 animate-fadeIn">
-            <div className="inline-block px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 rounded-full">
-              <span className="text-cyan-300 text-sm font-semibold">INTRODUCTION & PROBLEM CONTEXT</span>
+          <div className="space-y-4 sm:space-y-6 animate-fadeIn">
+            <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-cyan-500/20 border border-cyan-500/50 rounded-full">
+              <span className="text-cyan-300 text-xs sm:text-sm font-semibold">INTRODUCTION & PROBLEM CONTEXT</span>
             </div>
             
-            <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Road Safety Crisis in
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"> India</span>
             </h2>
 
-            <div className="space-y-4 text-neutral-300">
-              <div className="flex gap-4">
-                <div className="w-1 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
-                <p className="text-lg">Every year, India records over <span className="text-cyan-300 font-semibold">1.5 lakh road fatalities</span>, with highways contributing nearly 37% (MoRTH, 2023).</p>
+            <div className="space-y-3 sm:space-y-4 text-neutral-300">
+              <div className="flex gap-3 sm:gap-4">
+                <div className="w-0.5 sm:w-1 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
+                <p className="text-sm sm:text-base lg:text-lg">Every year, India records over <span className="text-cyan-300 font-semibold">1.5 lakh road fatalities</span>, with highways contributing nearly 37% (MoRTH, 2023).</p>
               </div>
 
-              <div className="flex gap-4">
-                <div className="w-1 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
-                <p className="text-lg">Gujarat's NH corridors like <span className="text-cyan-300 font-semibold">NH-53 and NH-48</span> are high-risk zones due to increasing vehicular load.</p>
+              <div className="flex gap-3 sm:gap-4">
+                <div className="w-0.5 sm:w-1 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
+                <p className="text-sm sm:text-base lg:text-lg">Gujarat's NH corridors like <span className="text-cyan-300 font-semibold">NH-53 and NH-48</span> are high-risk zones due to increasing vehicular load.</p>
               </div>
 
-              <div className="flex gap-4">
-                <div className="w-1 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
-                <p className="text-lg">Despite government programs, preventable causes like <span className="text-cyan-300 font-semibold">overspeeding and driver fatigue</span> still dominate.</p>
+              <div className="flex gap-3 sm:gap-4">
+                <div className="w-0.5 sm:w-1 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
+                <p className="text-sm sm:text-base lg:text-lg">Despite government programs, preventable causes like <span className="text-cyan-300 font-semibold">overspeeding and driver fatigue</span> still dominate.</p>
               </div>
 
-              <div className="flex gap-4">
-                <div className="w-1 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
-                <p className="text-lg">Analyzing crash data provides <span className="text-cyan-300 font-semibold">data-driven direction</span> for enforcement, infrastructure design, and policy.</p>
+              <div className="flex gap-3 sm:gap-4">
+                <div className="w-0.5 sm:w-1 bg-gradient-to-b from-cyan-400 to-blue-500 rounded-full"></div>
+                <p className="text-sm sm:text-base lg:text-lg">Analyzing crash data provides <span className="text-cyan-300 font-semibold">data-driven direction</span> for enforcement, infrastructure design, and policy.</p>
               </div>
             </div>
 
-            <p className="text-neutral-500 italic">As per MoRTH Annual Report 2023</p>
+            <p className="text-neutral-500 italic text-xs sm:text-sm">As per MoRTH Annual Report 2023</p>
           </div>
 
           {/* Right Image - Highway Scene */}
-          <div className="relative h-96 md:h-full rounded-2xl overflow-hidden group">
+          <div className="relative h-64 sm:h-80 md:h-96 lg:h-full rounded-2xl overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 z-10"></div>
             <img 
               src="/indian-highway-nh53-road.jpg"
@@ -91,21 +91,21 @@ export default function PresentationPage1() {
       </section>
 
       {/* Section 2: Need & Research Gaps */}
-      <section className="min-h-screen flex items-center justify-center px-4 relative py-20">
-        <div className="absolute top-40 left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl opacity-20"></div>
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative py-12 sm:py-20">
+        <div className="absolute top-40 left-5 sm:left-20 w-48 h-48 sm:w-80 sm:h-80 bg-blue-500/10 rounded-full blur-3xl opacity-20"></div>
 
         <div className="max-w-6xl mx-auto w-full relative z-10">
-          <div className="text-center mb-16 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-            <div className="inline-block px-4 py-2 bg-blue-500/20 border border-blue-500/50 rounded-full mb-6">
-              <span className="text-blue-300 text-sm font-semibold">RESEARCH GAPS</span>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
+            <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/20 border border-blue-500/50 rounded-full mb-4 sm:mb-6">
+              <span className="text-blue-300 text-xs sm:text-sm font-semibold">RESEARCH GAPS</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
               The <span className="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">Missing Pieces</span>
             </h2>
-            <p className="text-neutral-400 text-xl max-w-3xl mx-auto">Existing studies lack critical depth in analysis and modern data science approaches</p>
+            <p className="text-neutral-400 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto px-4">Existing studies lack critical depth in analysis and modern data science approaches</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 icon: "📊",
@@ -143,12 +143,12 @@ export default function PresentationPage1() {
       </section>
 
       {/* Section 3: Objectives */}
-      <section className="min-h-screen flex items-center justify-center px-4 relative py-20">
-        <div className="absolute bottom-40 right-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl opacity-20"></div>
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative py-12 sm:py-20">
+        <div className="absolute bottom-40 right-5 sm:right-20 w-48 h-48 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl opacity-20"></div>
 
-        <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 relative z-10 items-center">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 relative z-10 items-center">
           {/* Left - Image */}
-          <div className="relative h-96 md:h-full rounded-2xl overflow-hidden group order-2 md:order-1">
+          <div className="relative h-64 sm:h-80 md:h-96 lg:h-full rounded-2xl overflow-hidden group order-2 md:order-1">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 z-10"></div>
             <img 
               src="/car-crash-accident-damaged-vehicle.jpg"
@@ -159,17 +159,17 @@ export default function PresentationPage1() {
           </div>
 
           {/* Right - Content */}
-          <div className="space-y-8 order-1 md:order-2 animate-fadeIn">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 order-1 md:order-2 animate-fadeIn">
             <div>
-              <div className="inline-block px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 rounded-full mb-6">
-                <span className="text-cyan-300 text-sm font-semibold">OBJECTIVES OF ANALYSIS</span>
+              <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-cyan-500/20 border border-cyan-500/50 rounded-full mb-4 sm:mb-6">
+                <span className="text-cyan-300 text-xs sm:text-sm font-semibold">OBJECTIVES OF ANALYSIS</span>
               </div>
-              <h2 className="text-5xl font-bold mb-8">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 lg:mb-8">
                 Research <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Objectives</span>
               </h2>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {[
                 "Study pattern and frequency of road crashes with respect to time",
                 "Classify accidents by nature and severity (fatal, grievous, minor, non-injury)",
@@ -193,17 +193,17 @@ export default function PresentationPage1() {
       </section>
 
       {/* CTA to next page */}
-      <section className="min-h-screen flex items-center justify-center px-4 relative">
-        <div className="text-center space-y-8 animate-fadeIn">
-          <h2 className="text-5xl md:text-6xl font-bold">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center space-y-4 sm:space-y-6 lg:space-y-8 animate-fadeIn">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold px-4">
             Ready to explore the
-            <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mt-4">Methodology?</span>
+            <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mt-3 sm:mt-4">Methodology?</span>
           </h2>
-          <p className="text-neutral-400 text-xl max-w-2xl mx-auto">Discover our comprehensive approach to data collection, analysis, and insights generation.</p>
+          <p className="text-neutral-400 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto px-4">Discover our comprehensive approach to data collection, analysis, and insights generation.</p>
           
           <Link href="/presentation/page2">
-            <button className="mt-8 px-10 py-5 bg-cyan-500 hover:bg-cyan-400 rounded-xl font-bold text-white text-lg shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/80 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 flex items-center gap-3 mx-auto group">
-              View Methodology <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <button className="mt-6 sm:mt-8 px-6 py-3 sm:px-10 sm:py-5 bg-cyan-500 hover:bg-cyan-400 rounded-xl font-bold text-white text-base sm:text-lg shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/80 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 flex items-center gap-2 sm:gap-3 mx-auto group">
+              View Methodology <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </Link>
         </div>

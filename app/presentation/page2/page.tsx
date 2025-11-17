@@ -17,18 +17,18 @@ export default function PresentationPage2() {
     <div className="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-white overflow-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-neutral-900/80 backdrop-blur border-b border-cyan-500/20">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
+          <h1 className="text-sm sm:text-lg md:text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             CRASH DATA PRESENTATION
           </h1>
-          <div className="flex gap-4">
+          <div className="flex gap-2 sm:gap-4">
             <Link href="/presentation">
-              <button className="px-6 py-2.5 bg-gradient-to-r from-neutral-700/50 to-neutral-800/50 hover:from-neutral-600 hover:to-neutral-700 border border-neutral-500/50 hover:border-neutral-400 rounded-lg text-neutral-200 hover:text-white font-semibold shadow-lg shadow-neutral-900/50 hover:shadow-neutral-800/80 transition-all duration-300 transform hover:scale-105 flex items-center gap-2 group">
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back
+              <button className="px-3 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-neutral-700/50 to-neutral-800/50 hover:from-neutral-600 hover:to-neutral-700 border border-neutral-500/50 hover:border-neutral-400 rounded-lg text-neutral-200 hover:text-white text-xs sm:text-base font-semibold shadow-lg shadow-neutral-900/50 hover:shadow-neutral-800/80 transition-all duration-300 transform hover:scale-105 flex items-center gap-1 sm:gap-2 group">
+                <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 group-hover:-translate-x-1 transition-transform" /> <span className="hidden xs:inline">Back</span>
               </button>
             </Link>
             <Link href="/dashboard">
-              <button className="px-6 py-2.5 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 hover:from-cyan-500 hover:to-blue-500 border border-cyan-400/50 hover:border-cyan-300 rounded-lg text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/60 transition-all duration-300 transform hover:scale-105">
+              <button className="px-3 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 hover:from-cyan-500 hover:to-blue-500 border border-cyan-400/50 hover:border-cyan-300 rounded-lg text-white text-xs sm:text-base font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/60 transition-all duration-300 transform hover:scale-105">
                 Dashboard
               </button>
             </Link>
@@ -37,16 +37,16 @@ export default function PresentationPage2() {
       </nav>
 
       {/* Section 1: Methodology Flowchart */}
-      <section className="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1s" }}></div>
+      <section className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute top-20 left-5 sm:left-10 w-48 h-48 sm:w-96 sm:h-96 bg-blue-500/10 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 right-5 sm:right-10 w-48 h-48 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1s" }}></div>
 
-        <div className="max-w-7xl mx-auto w-full relative z-10 space-y-12">
+        <div className="max-w-7xl mx-auto w-full relative z-10 space-y-8 sm:space-y-12">
           <div className="text-center animate-fadeIn">
-            <div className="inline-block px-4 py-2 bg-blue-500/20 border border-blue-500/50 rounded-full mb-6">
-              <span className="text-blue-300 text-sm font-semibold">RESEARCH METHODOLOGY</span>
+            <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/20 border border-blue-500/50 rounded-full mb-4 sm:mb-6">
+              <span className="text-blue-300 text-xs sm:text-sm font-semibold">RESEARCH METHODOLOGY</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 px-4">
               Data Collection &
               <span className="block bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">Analysis Flow</span>
             </h2>
@@ -55,8 +55,8 @@ export default function PresentationPage2() {
           {/* Flowchart Image Card */}
           <div className="max-w-5xl mx-auto animate-fadeIn" style={{ animationDelay: "0.2s" }}>
             <div className="relative group">
-              <div className="p-8 bg-gradient-to-br from-neutral-800/80 to-neutral-900/80 backdrop-blur-lg rounded-3xl border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/20 hover:border-cyan-500/60 hover:shadow-cyan-500/40 transition-all duration-500">
-                <div className="rounded-2xl overflow-hidden bg-white/5 p-4">
+              <div className="p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-neutral-800/80 to-neutral-900/80 backdrop-blur-lg rounded-2xl sm:rounded-3xl border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/20 hover:border-cyan-500/60 hover:shadow-cyan-500/40 transition-all duration-500">
+                <div className="rounded-xl sm:rounded-2xl overflow-hidden bg-white/5 p-2 sm:p-4">
                   <img 
                     src="/FlowChart.png"
                     alt="Research Methodology Flowchart"
@@ -75,20 +75,20 @@ export default function PresentationPage2() {
       </section>
 
       {/* Section 2: NH-53 Route */}
-      <section className="min-h-screen flex items-center justify-center px-4 relative py-20">
-        <div className="absolute top-40 right-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl opacity-20"></div>
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative py-12 sm:py-20">
+        <div className="absolute top-40 right-5 sm:right-20 w-48 h-48 sm:w-80 sm:h-80 bg-cyan-500/10 rounded-full blur-3xl opacity-20"></div>
 
-        <div className="max-w-6xl mx-auto w-full relative z-10 space-y-12">
+        <div className="max-w-6xl mx-auto w-full relative z-10 space-y-8 sm:space-y-12">
           <div className="text-center animate-fadeIn">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 px-4">
               NH-53 Route
               <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Hazira to Uchchhal</span>
             </h2>
-            <p className="text-neutral-400 text-lg">Critical highway corridor spanning Gujarat</p>
+            <p className="text-neutral-400 text-base sm:text-lg px-4">Critical highway corridor spanning Gujarat</p>
           </div>
 
           {/* Route Map */}
-          <div className="rounded-2xl overflow-hidden border-2 border-cyan-500/30 hover:border-cyan-500/60 transition-all animate-fadeIn" style={{ animationDelay: "0.2s" }}>
+          <div className="rounded-xl sm:rounded-2xl overflow-hidden border-2 border-cyan-500/30 hover:border-cyan-500/60 transition-all animate-fadeIn" style={{ animationDelay: "0.2s" }}>
             <img 
               src="/nh53-route-map-hazira-to-uchchhal-gujarat.jpg"
               alt="NH-53 Route map"
@@ -101,23 +101,23 @@ export default function PresentationPage2() {
       </section>
 
       {/* Section 3: Data Coding & Reference */}
-      <section className="min-h-screen flex items-center justify-center px-4 relative py-20">
-        <div className="absolute bottom-40 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-20"></div>
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative py-12 sm:py-20">
+        <div className="absolute bottom-40 left-5 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-blue-500/10 rounded-full blur-3xl opacity-20"></div>
 
         <div className="max-w-6xl mx-auto w-full relative z-10">
-          <div className="text-center mb-12 animate-fadeIn">
-            <div className="inline-block px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 rounded-full mb-6">
-              <span className="text-cyan-300 text-sm font-semibold">DATA REFERENCE</span>
+          <div className="text-center mb-8 sm:mb-12 animate-fadeIn">
+            <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-cyan-500/20 border border-cyan-500/50 rounded-full mb-4 sm:mb-6">
+              <span className="text-cyan-300 text-xs sm:text-sm font-semibold">DATA REFERENCE</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 px-4">
               Codes & Numbers for
               <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Mapping the Data</span>
             </h2>
           </div>
 
           {/* Reference Table */}
-          <div className="overflow-x-auto rounded-2xl border border-cyan-500/30 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-            <table className="w-full">
+          <div className="overflow-x-auto rounded-xl sm:rounded-2xl border border-cyan-500/30 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
+            <table className="w-full min-w-[600px]">
               <thead>
                 <tr className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border-b border-cyan-500/30">
                   <th className="px-6 py-4 text-left font-bold text-cyan-300">NOTE</th>
@@ -168,16 +168,16 @@ export default function PresentationPage2() {
       </section>
 
       {/* CTA Back to Dashboard */}
-      <section className="min-h-screen flex items-center justify-center px-4 relative">
-        <div className="text-center space-y-8 animate-fadeIn">
-          <h2 className="text-5xl md:text-6xl font-bold">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center space-y-4 sm:space-y-6 lg:space-y-8 animate-fadeIn">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold px-4">
             Ready to explore the
-            <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mt-4">Dashboard?</span>
+            <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mt-3 sm:mt-4">Dashboard?</span>
           </h2>
-          <p className="text-neutral-400 text-xl max-w-2xl mx-auto">Return to the interactive dashboard to view comprehensive crash data analysis with visualizations and insights.</p>
+          <p className="text-neutral-400 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto px-4">Return to the interactive dashboard to view comprehensive crash data analysis with visualizations and insights.</p>
           
           <Link href="/dashboard">
-            <button className="mt-8 px-10 py-5 bg-cyan-500 hover:bg-cyan-400 rounded-xl font-bold text-white text-lg shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/80 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1">
+            <button className="mt-6 sm:mt-8 px-6 py-3 sm:px-10 sm:py-5 bg-cyan-500 hover:bg-cyan-400 rounded-xl font-bold text-white text-base sm:text-lg shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-500/80 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1">
               View Dashboard
             </button>
           </Link>

@@ -32,15 +32,15 @@ const renderCustomLabel = ({
   index: number
 }): JSX.Element => {
   const RADIAN = Math.PI / 180
-  let radius = outerRadius + 75
+  let radius = outerRadius + 30
   
   if (value < 10) {
-    radius = outerRadius + 105
+    radius = outerRadius + 45
   }
   if (value < 1) {
     // Stagger small slices vertically to prevent overlap
-    const offset = (index % 2 === 0) ? 0 : 15
-    radius = outerRadius + 140 + offset
+    const offset = (index % 2 === 0) ? 0 : 10
+    radius = outerRadius + 65 + offset
   }
   
   const x = cx + radius * Math.cos(-midAngle * RADIAN)
@@ -55,13 +55,13 @@ const renderCustomLabel = ({
 
 export default function IntersectionAnalysis() {
   return (
-    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-6 hover:border-cyan-500/60 transition-all duration-500 w-full">
-      <div className="space-y-4">
+    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-3 sm:p-4 lg:p-6 hover:border-cyan-500/60 transition-all duration-500 w-full">
+      <div className="space-y-3 sm:space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-cyan-300 mb-2">Intersection Type and Control Distribution</h3>
-          <p className="text-sm text-neutral-400">Analyzing accident concentration at intersections</p>
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-cyan-300 mb-1 sm:mb-2">Intersection Type and Control Distribution</h3>
+          <p className="text-xs sm:text-sm text-neutral-400">Analyzing accident concentration at intersections</p>
         </div>
-          <ResponsiveContainer width="100%" height={450}>
+          <ResponsiveContainer width="100%" height={350} className="sm:!h-[400px] lg:!h-[450px]">
             <PieChart margin={{ top: 40, right: 160, bottom: 40, left: 160 }}>
               <Pie
                 data={data}
@@ -90,14 +90,14 @@ export default function IntersectionAnalysis() {
           </ResponsiveContainer>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 pt-4 border-t border-cyan-500/20">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 pt-3 sm:pt-4 border-t border-cyan-500/20">
           {data.map((item, index) => (
-            <div key={index} className="p-3 bg-neutral-700/50 rounded border border-cyan-500/20 hover:bg-neutral-600/50 transition-colors">
+            <div key={index} className="p-2 sm:p-3 bg-neutral-700/50 rounded border border-cyan-500/20 hover:bg-neutral-600/50 transition-colors">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
-                <span className="text-xs text-neutral-400 truncate">{item.name}</span>
+                <span className="text-[10px] sm:text-xs text-neutral-400 truncate">{item.name}</span>
               </div>
-              <div className="text-lg font-bold text-cyan-300">{item.value}%</div>
+              <div className="text-base sm:text-lg font-bold text-cyan-300">{item.value}%</div>
               <div className="text-xs text-neutral-500">{item.count} cases</div>
             </div>
           ))}

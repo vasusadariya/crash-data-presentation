@@ -31,14 +31,14 @@ const renderCustomLabel = ({
   index: number
 }) => {
   const RADIAN = Math.PI / 180
-  let radius = outerRadius + 70
+  let radius = outerRadius + 30
   
   // Increase radius for very small slices to prevent overlap
   if (value < 5) {
-    radius = outerRadius + 95
+    radius = outerRadius + 45
   }
   if (value < 1) {
-    radius = outerRadius + 120
+    radius = outerRadius + 60
   }
   
   const x = cx + radius * Math.cos(-midAngle * RADIAN)
@@ -53,13 +53,21 @@ const renderCustomLabel = ({
 
 export default function VehicleTypeAnalysis() {
   return (
-    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-6 hover:border-cyan-500/60 transition-all duration-500 w-full">
-      <div className="space-y-4">
+    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-3 sm:p-4 lg:p-6 hover:border-cyan-500/60 transition-all duration-500 w-full">
+      <div className="space-y-3 sm:space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-cyan-300 mb-2">Vehicle Type / Pedestrian Involvement</h3>
-          <p className="text-sm text-neutral-400">Analysis of crash contribution by vehicle type</p>
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-cyan-300 mb-1 sm:mb-2">Vehicle Type / Pedestrian Involvement</h3>
+          <p className="text-xs sm:text-sm text-neutral-400">Analysis of crash contribution by vehicle type</p>
         </div>
-        <ResponsiveContainer width="100%" height={400}>
+
+        <div className="relative">
+          <div className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 sm:p-3 bg-neutral-800/80 border border-orange-500/30 rounded-lg backdrop-blur-sm z-10">
+            <div className="text-center">
+              <div className="text-lg sm:text-2xl font-bold text-orange-300">835</div>
+              <div className="text-[10px] sm:text-xs text-neutral-400">Total Cases</div>
+            </div>
+          </div>
+          <ResponsiveContainer width="100%" height={300} className="sm:!h-[350px] lg:!h-[400px]">
           <PieChart margin={{ top: 30, right: 130, bottom: 30, left: 130 }}>
             <Pie
               data={data}
@@ -116,6 +124,7 @@ export default function VehicleTypeAnalysis() {
               <span><strong>Public Transport Safe:</strong> Commercial vehicles show minimal involvement in accidents.</span>
             </li>
           </ul>
+        </div>
         </div>
       </div>
     </Card>

@@ -25,10 +25,10 @@ const renderCustomLabel = (props: PieLabelRenderProps) => {
 
   const RADIAN = Math.PI / 180
   const outerR = Number(outerRadius) || 0
-  let radius = outerR + 60
+  let radius = outerR + 25
 
   if (Number(value) < 10) {
-    radius = outerR + 75
+    radius = outerR + 35
   }
 
   const x = (Number(cx) || 0) + radius * Math.cos(- (Number(midAngle) || 0) * RADIAN)
@@ -43,21 +43,21 @@ const renderCustomLabel = (props: PieLabelRenderProps) => {
 
 export default function AccidentCausesAnalysis() {
   return (
-    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-6 hover:border-cyan-500/60 transition-all duration-500 w-full">
-      <div className="space-y-4">
+    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-3 sm:p-4 lg:p-6 hover:border-cyan-500/60 transition-all duration-500 w-full">
+      <div className="space-y-3 sm:space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-cyan-300 mb-2">Analysis of Accident Causes</h3>
-          <p className="text-sm text-neutral-400">Prioritizing road safety interventions</p>
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-cyan-300 mb-1 sm:mb-2">Analysis of Accident Causes</h3>
+          <p className="text-xs sm:text-sm text-neutral-400">Prioritizing road safety interventions</p>
         </div>
 
         <div className="relative">
-          <div className="absolute top-4 right-4 p-3 bg-neutral-800/80 border border-orange-500/30 rounded-lg backdrop-blur-sm z-10">
+          <div className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 sm:p-3 bg-neutral-800/80 border border-orange-500/30 rounded-lg backdrop-blur-sm z-10">
             <div className="text-center">
-              <div className="text-2xl font-bold text-orange-300">2305</div>
-              <div className="text-xs text-neutral-400">Total Cases</div>
+              <div className="text-lg sm:text-2xl font-bold text-orange-300">2305</div>
+              <div className="text-[10px] sm:text-xs text-neutral-400">Total Cases</div>
             </div>
           </div>
-          <ResponsiveContainer width="100%" height={350}>
+          <ResponsiveContainer width="100%" height={300} className="sm:!h-[350px]">
             <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
               <Pie
                 data={data}
@@ -80,12 +80,12 @@ export default function AccidentCausesAnalysis() {
           </ResponsiveContainer>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 pt-4 border-t border-cyan-500/20">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-3 sm:pt-4 border-t border-cyan-500/20">
           {data.map((item, index) => (
-            <div key={index} className="p-3 bg-neutral-700/50 rounded border border-cyan-500/20 hover:bg-neutral-600/50 transition-colors">
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
-                <span className="text-xs text-neutral-400">{item.name}</span>
+            <div key={index} className="p-2 sm:p-3 bg-neutral-700/50 rounded border border-cyan-500/20 hover:bg-neutral-600/50 transition-colors">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
+                <span className="text-xs text-neutral-400 truncate">{item.name}</span>
               </div>
               <div className="text-lg font-bold text-cyan-300">{item.value}%</div>
               <div className="text-xs text-neutral-500">{item.count} cases</div>

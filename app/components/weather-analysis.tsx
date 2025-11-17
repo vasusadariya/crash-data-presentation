@@ -14,13 +14,13 @@ const COLORS = ["#06b6d4", "#3b82f6", "#8b5cf6", "#a855f7"]
 
 const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }: { cx: number; cy: number; midAngle: number; innerRadius: number; outerRadius: number; value: number }) => {
   const RADIAN = Math.PI / 180
-  let radius = outerRadius + 60
+  let radius = outerRadius + 25
   
   if (value < 10) {
-    radius = outerRadius + 80
+    radius = outerRadius + 35
   }
   if (value < 5) {
-    radius = outerRadius + 100
+    radius = outerRadius + 45
   }
   
   const x = cx + radius * Math.cos(-midAngle * RADIAN)
@@ -35,13 +35,13 @@ const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }
 
 export default function WeatherAnalysis() {
   return (
-    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-6 hover:border-cyan-500/60 transition-all duration-500">
-      <div className="space-y-4">
+    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-3 sm:p-4 lg:p-6 hover:border-cyan-500/60 transition-all duration-500">
+      <div className="space-y-3 sm:space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-cyan-300 mb-2">Accident Distribution by Weather</h3>
-          <p className="text-sm text-neutral-400">Environmental conditions during crash incidents</p>
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-cyan-300 mb-1 sm:mb-2">Accident Distribution by Weather</h3>
+          <p className="text-xs sm:text-sm text-neutral-400">Environmental conditions during crash incidents</p>
         </div>
-          <ResponsiveContainer width="100%" height={350}>
+          <ResponsiveContainer width="100%" height={300} className="sm:!h-[350px]">
             <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
               <Pie
                 data={data}
@@ -69,14 +69,14 @@ export default function WeatherAnalysis() {
             </PieChart>
           </ResponsiveContainer>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-cyan-500/20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-cyan-500/20">
           {data.map((item, index) => (
-            <div key={index} className="p-3 bg-neutral-700/50 rounded border border-cyan-500/20 hover:bg-neutral-600/50 transition-colors">
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
-                <span className="text-xs text-neutral-400">{item.name}</span>
+            <div key={index} className="p-2 sm:p-3 bg-neutral-700/50 rounded border border-cyan-500/20 hover:bg-neutral-600/50 transition-colors">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
+                <span className="text-xs text-neutral-400 truncate">{item.name}</span>
               </div>
-              <div className="text-lg font-bold text-cyan-300">{item.value}%</div>
+              <div className="text-base sm:text-lg font-bold text-cyan-300">{item.value}%</div>
               <div className="text-xs text-neutral-500">{item.count} cases</div>
             </div>
           ))}

@@ -32,10 +32,10 @@ const renderCustomLabel = ({
   const or = outerRadius ?? 0
   const val = value ?? 0
 
-  let radius = or + 60
+  let radius = or + 25
   
   if (val < 10) {
-    radius = or + 75
+    radius = or + 35
   }
   
   const x = cx + radius * Math.cos(-m * RADIAN)
@@ -50,21 +50,21 @@ const renderCustomLabel = ({
 
 export default function SeverityAnalysis() {
   return (
-    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-6 hover:border-cyan-500/60 transition-all duration-500">
-      <div className="space-y-4">
+    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-3 sm:p-4 lg:p-6 hover:border-cyan-500/60 transition-all duration-500">
+      <div className="space-y-3 sm:space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-cyan-300 mb-2">Affected Persons by Severity</h3>
-          <p className="text-sm text-neutral-400">Overview of injury severity across crash incidents</p>
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-cyan-300 mb-1 sm:mb-2">Affected Persons by Severity</h3>
+          <p className="text-xs sm:text-sm text-neutral-400">Overview of injury severity across crash incidents</p>
         </div>
 
         <div className="relative">
-          <div className="absolute top-4 right-4 p-3 bg-neutral-800/80 border border-cyan-500/30 rounded-lg backdrop-blur-sm z-10">
+          <div className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 sm:p-3 bg-neutral-800/80 border border-cyan-500/30 rounded-lg backdrop-blur-sm z-10">
             <div className="text-center">
-              <div className="text-2xl font-bold text-cyan-300">5539</div>
-              <div className="text-xs text-neutral-400">Total Cases</div>
+              <div className="text-lg sm:text-2xl font-bold text-cyan-300">5539</div>
+              <div className="text-[10px] sm:text-xs text-neutral-400">Total Cases</div>
             </div>
           </div>
-          <ResponsiveContainer width="100%" height={350}>
+          <ResponsiveContainer width="100%" height={300} className="sm:!h-[350px]">
             <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
               <Pie
                 data={data}

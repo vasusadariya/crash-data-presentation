@@ -34,10 +34,10 @@ const renderCustomLabel = ({
   const numericMid = midAngle ?? 0
   const numericValue = typeof value === "number" ? value : parseFloat(String(value)) || 0
 
-  let radius = numericOuter + 60
+  let radius = numericOuter + 25
 
   if (numericValue < 10) {
-    radius = numericOuter + 80
+    radius = numericOuter + 35
   }
   if (numericValue < 1) {
     radius = numericOuter + 100
@@ -55,14 +55,14 @@ const renderCustomLabel = ({
 
 export default function RoadConditionAnalysis() {
   return (
-    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-6 hover:border-cyan-500/60 transition-all duration-500">
-      <div className="space-y-4">
+    <Card className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-cyan-500/30 p-3 sm:p-4 lg:p-6 hover:border-cyan-500/60 transition-all duration-500">
+      <div className="space-y-3 sm:space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-cyan-300 mb-2">Analysis of Road Condition (NH-53)</h3>
-          <p className="text-sm text-neutral-400">Road geometry and alignment at crash locations</p>
+          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-cyan-300 mb-1 sm:mb-2">Analysis of Road Condition (NH-53)</h3>
+          <p className="text-xs sm:text-sm text-neutral-400">Road geometry and alignment at crash locations</p>
         </div>
 
-        <ResponsiveContainer width="100%" height={350}>
+        <ResponsiveContainer width="100%" height={300} className="sm:!h-[350px]">
           <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
             <Pie
               data={data}
@@ -84,15 +84,15 @@ export default function RoadConditionAnalysis() {
           </PieChart>
         </ResponsiveContainer>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-cyan-500/20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-cyan-500/20">
           {data.map((item, index) => (
-            <div key={index} className="p-3 bg-neutral-700/50 rounded border border-cyan-500/20 hover:bg-neutral-600/50 transition-colors">
+            <div key={index} className="p-2 sm:p-3 bg-neutral-700/50 rounded border border-cyan-500/20 hover:bg-neutral-600/50 transition-colors">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[index] }}></div>
-                <span className="text-xs text-neutral-400">{item.name}</span>
+                <span className="text-[10px] sm:text-xs text-neutral-400">{item.name}</span>
               </div>
-              <div className="text-lg font-bold text-cyan-300">{item.value}%</div>
-              <div className="text-xs text-neutral-500">{item.count} cases</div>
+              <div className="text-base sm:text-lg font-bold text-cyan-300">{item.value}%</div>
+              <div className="text-[10px] sm:text-xs text-neutral-500">{item.count} cases</div>
             </div>
           ))}
         </div>
