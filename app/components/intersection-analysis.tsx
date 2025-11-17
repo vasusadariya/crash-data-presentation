@@ -14,7 +14,23 @@ const data = [
 
 const COLORS = ["#10b981", "#059669", "#047857", "#065f46", "#064e3b", "#042f2e"]
 
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value, index }) => {
+const renderCustomLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  value,
+  index,
+}: {
+  cx: number
+  cy: number
+  midAngle: number
+  innerRadius: number
+  outerRadius: number
+  value: number
+  index: number
+}): JSX.Element => {
   const RADIAN = Math.PI / 180
   let radius = outerRadius + 75
   
@@ -45,34 +61,34 @@ export default function IntersectionAnalysis() {
           <h3 className="text-xl font-bold text-cyan-300 mb-2">Intersection Type and Control Distribution</h3>
           <p className="text-sm text-neutral-400">Analyzing accident concentration at intersections</p>
         </div>
-
-        <ResponsiveContainer width="100%" height={450}>
-          <PieChart margin={{ top: 40, right: 160, bottom: 40, left: 160 }}>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              outerRadius={110}
-              innerRadius={60}
-              fill="#8884d8"
-              dataKey="value"
-              animationDuration={800}
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index]} stroke="#1a1a1a" strokeWidth={2} />
-              ))}
-            </Pie>
-            <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-cyan-300 text-2xl font-bold">
-              1040
-            </text>
-            <text x="50%" y="56%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
-              Total Cases
-            </text>
-            <Tooltip formatter={(value) => `${value}%`} />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
+          <ResponsiveContainer width="100%" height={450}>
+            <PieChart margin={{ top: 40, right: 160, bottom: 40, left: 160 }}>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                outerRadius={110}
+                innerRadius={60}
+                fill="#8884d8"
+                dataKey="value"
+                animationDuration={800}
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index]} stroke="#1a1a1a" strokeWidth={2} />
+                ))}
+              </Pie>
+              <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-cyan-300 text-2xl font-bold">
+                1040
+              </text>
+              <text x="50%" y="52%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
+                Total Cases
+              </text>
+              <Tooltip formatter={(value) => `${value}%`} />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 pt-4 border-t border-cyan-500/20">
           {data.map((item, index) => (
@@ -104,7 +120,6 @@ export default function IntersectionAnalysis() {
             </li>
           </ul>
         </div>
-      </div>
     </Card>
   )
 }

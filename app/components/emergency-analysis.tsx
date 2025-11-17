@@ -19,27 +19,35 @@ export default function EmergencyAnalysis() {
           <p className="text-sm text-neutral-400">Emergency help (Ambulance/Route Patrol) assistance availability</p>
         </div>
 
-        <ResponsiveContainer width="100%" height={350}>
-          <PieChart>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              label={({ name, value }) => `${name} ${value}%`}
-              outerRadius={110}
-              fill="#8884d8"
-              dataKey="value"
-              animationDuration={800}
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index]} />
-              ))}
-            </Pie>
-            <Tooltip formatter={(value) => `${value}%`} />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
+        <div className="relative">
+          <div className="absolute top-4 right-4 p-3 bg-neutral-800/80 border border-green-500/30 rounded-lg backdrop-blur-sm z-10">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-green-300">2307</div>
+              <div className="text-xs text-neutral-400">Total Cases</div>
+            </div>
+          </div>
+          <ResponsiveContainer width="100%" height={350}>
+            <PieChart>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={({ name, value }) => `${name} ${value}%`}
+                outerRadius={110}
+                fill="#8884d8"
+                dataKey="value"
+                animationDuration={800}
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                ))}
+              </Pie>
+              <Tooltip formatter={(value) => `${value}%`} />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
 
         <div className="grid grid-cols-2 gap-4 pt-4 border-t border-cyan-500/20">
           {data.map((item, index) => (

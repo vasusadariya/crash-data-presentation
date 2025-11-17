@@ -13,7 +13,23 @@ const data = [
 
 const COLORS = ["#f59e0b", "#f97316", "#ef4444", "#ec4899", "#d946ef"]
 
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value, index }) => {
+const renderCustomLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  value,
+  index,
+}: {
+  cx: number
+  cy: number
+  midAngle: number
+  innerRadius: number
+  outerRadius: number
+  value: number
+  index: number
+}) => {
   const RADIAN = Math.PI / 180
   let radius = outerRadius + 70
   
@@ -43,7 +59,6 @@ export default function VehicleTypeAnalysis() {
           <h3 className="text-xl font-bold text-cyan-300 mb-2">Vehicle Type / Pedestrian Involvement</h3>
           <p className="text-sm text-neutral-400">Analysis of crash contribution by vehicle type</p>
         </div>
-
         <ResponsiveContainer width="100%" height={400}>
           <PieChart margin={{ top: 30, right: 130, bottom: 30, left: 130 }}>
             <Pie
@@ -64,7 +79,7 @@ export default function VehicleTypeAnalysis() {
             <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-cyan-300 text-2xl font-bold">
               835
             </text>
-            <text x="50%" y="56%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
+            <text x="50%" y="53%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
               Total Cases
             </text>
             <Tooltip formatter={(value) => `${value}%`} />

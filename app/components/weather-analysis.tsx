@@ -12,7 +12,7 @@ const data = [
 
 const COLORS = ["#06b6d4", "#3b82f6", "#8b5cf6", "#a855f7"]
 
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }) => {
+const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }: { cx: number; cy: number; midAngle: number; innerRadius: number; outerRadius: number; value: number }) => {
   const RADIAN = Math.PI / 180
   let radius = outerRadius + 60
   
@@ -41,34 +41,33 @@ export default function WeatherAnalysis() {
           <h3 className="text-xl font-bold text-cyan-300 mb-2">Accident Distribution by Weather</h3>
           <p className="text-sm text-neutral-400">Environmental conditions during crash incidents</p>
         </div>
-
-        <ResponsiveContainer width="100%" height={350}>
-          <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              outerRadius={110}
-              innerRadius={60}
-              fill="#8884d8"
-              dataKey="value"
-              animationDuration={800}
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index]} stroke="#1a1a1a" strokeWidth={2} />
-              ))}
-            </Pie>
-            <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-cyan-300 text-2xl font-bold">
-              2305
-            </text>
-            <text x="50%" y="56%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
-              Total Cases
-            </text>
-            <Tooltip formatter={(value) => `${value}%`} />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
+          <ResponsiveContainer width="100%" height={350}>
+            <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                outerRadius={110}
+                innerRadius={60}
+                fill="#8884d8"
+                dataKey="value"
+                animationDuration={800}
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index]} stroke="#1a1a1a" strokeWidth={2} />
+                ))}
+              </Pie>
+              <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-cyan-300 text-2xl font-bold">
+                2305
+              </text>
+              <text x="50%" y="53%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
+                Total Cases
+              </text>
+              <Tooltip formatter={(value) => `${value}%`} />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-cyan-500/20">
           {data.map((item, index) => (

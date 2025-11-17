@@ -27,7 +27,21 @@ const COLORS = [
   "#E0E0E0", // Right Turn - Light Gray
 ]
 
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }) => {
+const renderCustomLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  value,
+}: {
+  cx: number
+  cy: number
+  midAngle: number
+  innerRadius: number
+  outerRadius: number
+  value: number
+}) => {
   const RADIAN = Math.PI / 180
   let radius = outerRadius + 70
   
@@ -59,40 +73,42 @@ export default function NatureOfAccidentAnalysis() {
           <p className="text-sm text-neutral-400">Analysis of collision types on NH-53 corridor</p>
         </div>
 
-        <ResponsiveContainer width="100%" height={450}>
-          <PieChart margin={{ top: 40, right: 140, bottom: 40, left: 140 }}>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              labelLine={false}
-              outerRadius={115}
-              innerRadius={65}
-              fill="#8884d8"
-              dataKey="value"
-              animationDuration={800}
-              stroke="#1a1a1a"
-              strokeWidth={2}
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index]} />
-              ))}
-            </Pie>
-            <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-cyan-300 text-2xl font-bold">
-              2303
-            </text>
-            <text x="50%" y="56%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
-              Total Cases
-            </text>
-            <Tooltip formatter={(value) => `${value}%`} />
-            <Legend 
-              layout="vertical"
-              verticalAlign="middle"
-              align="right"
-              wrapperStyle={{ paddingLeft: '20px' }}
-            />
-          </PieChart>
-        </ResponsiveContainer>
+        <div className="relative">
+          <div className="absolute top-4 right-4 p-3 bg-neutral-800/80 border border-blue-500/30 rounded-lg backdrop-blur-sm z-10">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-300">2303</div>
+              <div className="text-xs text-neutral-400">Total Cases</div>
+            </div>
+          </div>
+          <ResponsiveContainer width="100%" height={450}>
+            <PieChart margin={{ top: 40, right: 140, bottom: 40, left: 140 }}>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                outerRadius={115}
+                innerRadius={65}
+                fill="#8884d8"
+                dataKey="value"
+                animationDuration={800}
+                stroke="#1a1a1a"
+                strokeWidth={2}
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                ))}
+              </Pie>
+              <Tooltip formatter={(value) => `${value}%`} />
+              <Legend 
+                layout="vertical"
+                verticalAlign="middle"
+                align="right"
+                wrapperStyle={{ paddingLeft: '20px' }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 pt-4 border-t border-cyan-500/20">
           {data.slice(0, 6).map((item, index) => (

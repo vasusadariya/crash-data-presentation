@@ -1,6 +1,6 @@
 "use client"
 
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts"
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, PieLabelRenderProps } from "recharts"
 import { Card } from "@/components/ui/card"
 
 const data = [
@@ -13,19 +13,29 @@ const data = [
 
 const COLORS = ["#ff6b35", "#ff8c42", "#ffa94d", "#ffb366", "#ffcc99"]
 
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }) => {
+const renderCustomLabel = (props: PieLabelRenderProps) => {
+  const {
+    cx = 0,
+    cy = 0,
+    midAngle = 0,
+    innerRadius = 0,
+    outerRadius = 0,
+    value = 0,
+  } = props
+
   const RADIAN = Math.PI / 180
-  let radius = outerRadius + 60
-  
-  if (value < 10) {
-    radius = outerRadius + 75
+  const outerR = Number(outerRadius) || 0
+  let radius = outerR + 60
+
+  if (Number(value) < 10) {
+    radius = outerR + 75
   }
-  
-  const x = cx + radius * Math.cos(-midAngle * RADIAN)
-  const y = cy + radius * Math.sin(-midAngle * RADIAN)
+
+  const x = (Number(cx) || 0) + radius * Math.cos(- (Number(midAngle) || 0) * RADIAN)
+  const y = (Number(cy) || 0) + radius * Math.sin(- (Number(midAngle) || 0) * RADIAN)
 
   return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? "start" : "end"} dominantBaseline="central" className="text-xs font-bold">
+    <text x={x} y={y} fill="white" textAnchor={x > (Number(cx) || 0) ? "start" : "end"} dominantBaseline="central" className="text-xs font-bold">
       {`${value}%`}
     </text>
   )
@@ -40,27 +50,35 @@ export default function AccidentCausesAnalysis() {
           <p className="text-sm text-neutral-400">Prioritizing road safety interventions</p>
         </div>
 
-        <ResponsiveContainer width="100%" height={350}>
-          <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              labelLine={true}
-              label={renderCustomLabel}
-              outerRadius={100}
-              fill="#8884d8"
-              dataKey="value"
-              animationDuration={800}
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index]} stroke="#1a1a1a" strokeWidth={2} />
-              ))}
-            </Pie>
-            <Tooltip formatter={(value) => `${value}%`} />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
+        <div className="relative">
+          <div className="absolute top-4 right-4 p-3 bg-neutral-800/80 border border-orange-500/30 rounded-lg backdrop-blur-sm z-10">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-orange-300">2305</div>
+              <div className="text-xs text-neutral-400">Total Cases</div>
+            </div>
+          </div>
+          <ResponsiveContainer width="100%" height={350}>
+            <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
+              <Pie
+                data={data}
+                cx="50%"
+                cy="50%"
+                labelLine={true}
+                label={renderCustomLabel}
+                outerRadius={100}
+                fill="#8884d8"
+                dataKey="value"
+                animationDuration={800}
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index]} stroke="#1a1a1a" strokeWidth={2} />
+                ))}
+              </Pie>
+              <Tooltip formatter={(value) => `${value}%`} />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-2 pt-4 border-t border-cyan-500/20">
           {data.map((item, index) => (

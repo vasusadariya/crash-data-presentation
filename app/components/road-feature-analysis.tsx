@@ -12,7 +12,21 @@ const data = [
 
 const COLORS = ["#a855f7", "#9333ea", "#7e22ce", "#6b21a8"]
 
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }) => {
+const renderCustomLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  value,
+}: {
+  cx: number
+  cy: number
+  midAngle: number
+  innerRadius: number
+  outerRadius: number
+  value: number
+}) => {
   const RADIAN = Math.PI / 180
   let radius = outerRadius + 70
   
@@ -38,7 +52,6 @@ export default function RoadFeatureAnalysis() {
           <h3 className="text-xl font-bold text-cyan-300 mb-2">Analysis of Road Feature Distribution</h3>
           <p className="text-sm text-neutral-400">Road type characteristics at accident locations</p>
         </div>
-
         <ResponsiveContainer width="100%" height={400}>
           <PieChart margin={{ top: 30, right: 130, bottom: 30, left: 130 }}>
             <Pie
@@ -51,7 +64,6 @@ export default function RoadFeatureAnalysis() {
               fill="#8884d8"
               dataKey="value"
               animationDuration={800}
-              margin={10}
             >
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index]} stroke="#1a1a1a" strokeWidth={2} />
@@ -60,7 +72,7 @@ export default function RoadFeatureAnalysis() {
             <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-cyan-300 text-2xl font-bold">
               2304
             </text>
-            <text x="50%" y="56%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
+            <text x="50%" y="53%" textAnchor="middle" dominantBaseline="middle" className="fill-neutral-400 text-sm">
               Total Cases
             </text>
             <Tooltip formatter={(value) => `${value}%`} />

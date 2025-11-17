@@ -12,23 +12,43 @@ const data = [
 
 const COLORS = ["#06b6d4", "#0891b2", "#0e7490", "#155e75"]
 
-const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }) => {
+const renderCustomLabel = ({
+  cx = 0,
+  cy = 0,
+  midAngle = 0,
+  innerRadius = 0,
+  outerRadius = 0,
+  value = 0,
+}: {
+  cx?: number
+  cy?: number
+  midAngle?: number
+  innerRadius?: number
+  outerRadius?: number
+  value?: number | string
+}): JSX.Element => {
   const RADIAN = Math.PI / 180
-  let radius = outerRadius + 60
-  
-  if (value < 10) {
-    radius = outerRadius + 80
+
+  // coerce numbers safely (Recharts props can be undefined)
+  const numericOuter = outerRadius ?? 0
+  const numericMid = midAngle ?? 0
+  const numericValue = typeof value === "number" ? value : parseFloat(String(value)) || 0
+
+  let radius = numericOuter + 60
+
+  if (numericValue < 10) {
+    radius = numericOuter + 80
   }
-  if (value < 1) {
-    radius = outerRadius + 100
+  if (numericValue < 1) {
+    radius = numericOuter + 100
   }
-  
-  const x = cx + radius * Math.cos(-midAngle * RADIAN)
-  const y = cy + radius * Math.sin(-midAngle * RADIAN)
+
+  const x = cx + radius * Math.cos(-numericMid * RADIAN)
+  const y = cy + radius * Math.sin(-numericMid * RADIAN)
 
   return (
     <text x={x} y={y} fill="white" textAnchor={x > cx ? "start" : "end"} dominantBaseline="central" className="text-xs font-bold">
-      {`${value}%`}
+      {`${numericValue}%`}
     </text>
   )
 }
