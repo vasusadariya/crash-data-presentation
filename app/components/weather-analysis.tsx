@@ -5,8 +5,8 @@ import { Card } from "@/components/ui/card"
 
 const data = [
   { name: "Fine", value: 91.9, count: 2118 },
-  { name: "Light Rain", value: 3.4, count: 107 },
-  { name: "Cloudy", value: 4.6, count: 56 },
+  { name: "Light Rain", value: 4.6, count: 107 },
+  { name: "Cloudy", value: 2.4, count: 56 },
   { name: "Heavy Rain", value: 1.0, count: 24 },
 ]
 
